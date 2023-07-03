@@ -1,10 +1,10 @@
-package data;
+package specs;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 
-import static data.Constants.BASE_URL;
+import static specs.Constants.BASE_URL;
 
 public class RequestSpec {
 

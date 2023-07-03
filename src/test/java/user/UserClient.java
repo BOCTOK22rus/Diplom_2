@@ -1,13 +1,9 @@
-package data.user;
+package user;
 
-import data.user.data.ChangeData;
-import data.user.data.ChangeDataNotAuthorized;
-import data.user.data.Login;
-import data.user.data.User;
 import io.restassured.response.Response;
-import data.RequestSpec;
+import specs.RequestSpec;
 
-import static data.Constants.*;
+import static specs.Constants.*;
 import static io.restassured.RestAssured.given;
 
 public class UserClient extends RequestSpec {

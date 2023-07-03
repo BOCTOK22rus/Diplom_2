@@ -1,4 +1,4 @@
-package data.user.data;
+package user;
 
 public class Login {
 

@@ -1,11 +1,11 @@
-import data.user.UserClient;
+import user.UserClient;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
 
-import static data.Constants.DOMAIN_EMAIL;
+import static specs.Constants.DOMAIN_EMAIL;
 import static org.hamcrest.Matchers.equalTo;
 
 public class LoginUserTest {

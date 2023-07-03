@@ -1,15 +1,15 @@
 import com.google.gson.JsonElement;
-import data.user.UserClient;
+import user.UserClient;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
-import data.orders.OrdersClient;
+import orders.OrdersClient;
 
 import java.util.List;
 
-import static data.Constants.*;
+import static specs.Constants.*;
 import static org.hamcrest.Matchers.equalTo;
 
 public class GetOrdersUserTest {
@@ -32,11 +32,11 @@ public class GetOrdersUserTest {
         Response responseOrders = ordersClient.createOrdersAuth(requestBody, accessToken);
         int orderNumber = Integer.parseInt(responseOrders.jsonPath().getString("order.number"));
         Response responseOrdersUser = ordersClient.getOrdersUserAuth(accessToken);
+        userClient.deleteUser(accessToken);
         responseOrdersUser.then().assertThat()
                 .statusCode(200)
                 .body("success", equalTo(true))
                 .body("orders[0].number", equalTo(orderNumber));
-        userClient.deleteUser(accessToken);
     }
 
     @Test

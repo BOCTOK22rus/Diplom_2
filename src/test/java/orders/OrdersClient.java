@@ -1,16 +1,16 @@
-package data.orders;
+package orders;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import io.restassured.response.Response;
-import data.RequestSpec;
+import specs.RequestSpec;
 
 import java.util.List;
 import java.util.Random;
 
-import static data.Constants.*;
+import static specs.Constants.*;
 import static io.restassured.RestAssured.given;
 
 public class OrdersClient extends RequestSpec {

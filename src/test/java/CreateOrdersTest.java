@@ -1,6 +1,6 @@
 import com.google.gson.*;
-import data.orders.OrdersClient;
-import data.user.UserClient;
+import orders.OrdersClient;
+import user.UserClient;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import java.util.List;
 
-import static data.Constants.DOMAIN_EMAIL;
+import static specs.Constants.DOMAIN_EMAIL;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 
@@ -46,12 +46,12 @@ public class CreateOrdersTest {
         String requestBody = ordersClient.getBodyOrders(ingredients);
         String accessToken = responseAuthUser.jsonPath().getString("accessToken").substring(7);
         Response responseOrders = ordersClient.createOrdersAuth(requestBody, accessToken);
+        userClient.deleteUser(accessToken);
         responseOrders.then().assertThat()
                 .statusCode(200)
                 .body("success", equalTo(true))
                 .body("name", notNullValue())
                 .body("order.owner.email", equalTo(email.toLowerCase()));
-        userClient.deleteUser(accessToken);
     }
 
     @Test

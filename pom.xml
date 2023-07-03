@@ -35,31 +35,25 @@
       <version>4.13.2</version>
       <scope>test</scope>
     </dependency>
-
     <!-- модуль взаимодействия Allure и Junit -->
     <dependency>
       <groupId>io.qameta.allure</groupId>
       <artifactId>allure-junit4</artifactId>
       <version>${allure.version}</version>
     </dependency>
+    <!-- модуль взаимодействия Allure и RestAssured -->
     <dependency>
-      <!-- модуль взаимодействия Allure и RestAssured -->
       <groupId>io.qameta.allure</groupId>
       <artifactId>allure-rest-assured</artifactId>
       <version>${allure.version}</version>
     </dependency>
+
     <dependency>
       <groupId>com.google.code.gson</groupId>
       <artifactId>gson</artifactId>
       <version>2.8.9</version>
     </dependency>
-      <dependency>
-          <groupId>org.glassfish</groupId>
-          <artifactId>jsonp-jaxrs-1x</artifactId>
-          <version>2.0.0-RC3</version>
-      </dependency>
   </dependencies>
-
   <build>
     <plugins>
       <plugin>
